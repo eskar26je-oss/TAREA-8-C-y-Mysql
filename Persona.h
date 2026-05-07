@@ -9,12 +9,12 @@ protected:
 	int telefono = 0, id_tipo_sangre = 0;
 	//contructores
 	Persona() {}
-	Persona (string nom, string ape, string dir, string fn, int tel, int id_ts) {
+	Persona (string nom, string ape, string dir, int tel, string fn, int id_ts) {
 		nombres = nom;
 		apellidos = ape;
 		direccion = dir;
-		fecha_nacimiento = fn;
 		telefono = tel;
+		fecha_nacimiento = fn;
 		id_tipo_sangre = id_ts; 
 	}
 };
