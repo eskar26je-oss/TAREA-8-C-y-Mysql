@@ -4,45 +4,173 @@ using namespace std;
 int main() {
 	string codigo, nombres, apellidos, direccion, fecha_nacimiento;
 	int telefono = 0, id_tipo_sangre = 0, id_estudiante = 0;
-	cout << "Ingrese Codigo: ";
-	cin >> codigo;
+	Estudiante v; 
+	while(true) {
+
+		cout << "Ingrese Codigo: ";
+		cin >> codigo;
+
+		v.setCodigo(codigo);
+
+		if (v.validarCodigo()) {
+			break;
+		}
+	}
 	cin.ignore();
-	cout << "Ingrese Nombres: ";
-	getline(cin, nombres);
-	cout << "Ingrese Apellidos: ";
-	getline(cin, apellidos);
-	cout << "Ingrese Direccion: ";
-	getline(cin, direccion);
-	cout << "Ingrese Telefono: ";
-	cin >> telefono;
+	while (true) {
+
+		cout << "Ingrese Nombres: ";
+		getline(cin, nombres);
+
+		v.setNombres(nombres);
+
+		if (v.validarNombres()) {
+			break;
+		}
+	}
+	while (true) {
+
+		cout << "Ingrese Apellidos: ";
+		getline(cin, apellidos);
+
+		v.setApellidos(apellidos);
+
+		if (v.validarApellidos()) {
+			break;
+		}
+	}
+	while (true) {
+
+		cout << "Ingrese Direccion: ";
+		getline(cin, direccion);
+
+		v.setDireccion(direccion);
+
+		if (v.validarDireccion()) {
+			break;
+		}
+	}
+	while (true) {
+
+		cout << "Ingrese Telefono: ";
+		cin >> telefono;
+
+		v.setTelefono(telefono);
+
+		if (v.validarTelefono()) {
+			break;
+		}
+	}
 	cin.ignore();
-	cout << "Ingrese Fecha Nacimiento: ";
-	getline(cin, fecha_nacimiento);
-	cout << "Ingrese Tipo Sangre: ";
-	cin >> id_tipo_sangre;
-	
+
+	while (true) {
+
+		cout << "Ingrese Fecha Nacimiento: ";
+		getline(cin, fecha_nacimiento);
+
+		v.setFecha_Nacimiento(fecha_nacimiento);
+
+		if (v.validarFecha()) {
+			break;
+		}
+	}
+	while (true) {
+
+		cout << "Ingrese Tipo Sangre: ";
+		cin >> id_tipo_sangre;
+
+		v.setId_Tipo_Sangre(id_tipo_sangre);
+
+		if (v.validarTipoSangre()) {
+			break;
+		}
+	}
 	Estudiante e (id_estudiante, codigo, nombres, apellidos, direccion, telefono, fecha_nacimiento, id_tipo_sangre);
 	e.crear();
 	e.leer();
 	//actualizar
 	cout << "Ingrese ID A MODIFICAR: ";
 	cin >> id_estudiante;
-	cout << "Ingrese Codigo: ";
-	cin >> codigo;
+	while (true) {
+
+		cout << "Ingrese Codigo: ";
+		cin >> codigo;
+
+		v.setCodigo(codigo);
+
+		if (v.validarCodigo()) {
+			break;
+		}
+	}
 	cin.ignore();
-	cout << "Ingrese Nombres: ";
-	getline(cin, nombres);
-	cout << "Ingrese Apellidos: ";
-	getline(cin, apellidos);
-	cout << "Ingrese Direccion: ";
-	getline(cin, direccion);
-	cout << "Ingrese Telefono: ";
-	cin >> telefono;
+	while (true) {
+
+		cout << "Ingrese Nombres: ";
+		getline(cin, nombres);
+
+		v.setNombres(nombres);
+
+		if (v.validarNombres()) {
+			break;
+		}
+	}
+	while (true) {
+
+		cout << "Ingrese Apellidos: ";
+		getline(cin, apellidos);
+
+		v.setApellidos(apellidos);
+
+		if (v.validarApellidos()) {
+			break;
+		}
+	}
+	while (true) {
+
+		cout << "Ingrese Direccion: ";
+		getline(cin, direccion);
+
+		v.setDireccion(direccion);
+
+		if (v.validarDireccion()) {
+			break;
+		}
+	}
+	while (true) {
+
+		cout << "Ingrese Telefono: ";
+		cin >> telefono;
+
+		v.setTelefono(telefono);
+
+		if (v.validarTelefono()) {
+			break;
+		}
+	}
 	cin.ignore();
-	cout << "Ingrese Fecha Nacimiento: ";
-	getline(cin, fecha_nacimiento);
-	cout << "Ingrese Tipo Sangre: ";
-	cin >> id_tipo_sangre;
+
+	while (true) {
+
+		cout << "Ingrese Fecha Nacimiento: ";
+		getline(cin, fecha_nacimiento);
+
+		v.setFecha_Nacimiento(fecha_nacimiento);
+
+		if (v.validarFecha()) {
+			break;
+		}
+	}
+	while (true) {
+
+		cout << "Ingrese Tipo Sangre: ";
+		cin >> id_tipo_sangre;
+
+		v.setId_Tipo_Sangre(id_tipo_sangre);
+
+		if (v.validarTipoSangre()) {
+			break;
+		}
+	}
 	e.setId_estudiante(id_estudiante);
 	e.setCodigo(codigo); 
 	e.setNombres(nombres);

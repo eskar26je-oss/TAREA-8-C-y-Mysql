@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <regex>
 #include <string>
 #include "ConexionBD.h"
 #include "Persona.h"
@@ -39,6 +40,125 @@ public:
 	string getFecha_nacimiento() { return fecha_nacimiento; }
 	int getId_tipo_sangre() { return id_tipo_sangre; }
 
+	//validaciones 
+	bool validarCodigo() {
+
+		regex formato("^E[0-9]{3}$");
+
+		if (codigo.empty()) {
+			cout << "El codigo esta vacio" << endl;
+			return false;
+		}
+
+		if (!regex_match(codigo, formato)) {
+			cout << "Formato invalido. Ejemplo: E001" << endl;
+			return false;
+		}
+
+		return true;
+	}
+	bool validarNombres() {
+
+		regex formato("^[A-Za-z ]+$");
+
+		if (nombres.empty()) {
+			cout << "El nombre esta vacio" << endl;
+			return false;
+		}
+
+		if (nombres.length() > 60) {
+			cout << "Maximo 60 caracteres" << endl;
+			return false;
+		}
+
+		if (!regex_match(nombres, formato)) {
+			cout << "Solo letras y espacios" << endl;
+			return false;
+		}
+
+		return true;
+	}
+	bool validarApellidos() {
+
+		regex formato("^[A-Za-z ]+$");
+
+		if (apellidos.empty()) {
+			cout << "El apellido esta vacio" << endl;
+			return false;
+		}
+
+		if (apellidos.length() > 60) {
+			cout << "Maximo 60 caracteres" << endl;
+			return false;
+		}
+
+		if (!regex_match(apellidos, formato)) {
+			cout << "Solo letras y espacios" << endl;
+			return false;
+		}
+
+		return true;
+	}
+	bool validarDireccion() {
+
+		if (direccion.empty()) {
+			cout << "Direccion vacia" << endl;
+			return false;
+		}
+
+		if (direccion.length() > 100) {
+			cout << "Maximo 100 caracteres" << endl;
+			return false;
+		}
+
+		if (direccion.find("'") != string::npos ||
+			direccion.find(";") != string::npos ||
+			direccion.find("--") != string::npos) {
+
+			cout << "Caracteres peligrosos detectados" << endl;
+			return false;
+		}
+
+		return true;
+	}
+	bool validarTelefono() {
+
+		string tel = to_string(telefono);
+
+		regex formato("^[0-9]{8}$");
+
+		if (!regex_match(tel, formato)) {
+			cout << "Telefono invalido debe tener 8 digitos" << endl;
+			return false;
+		}
+
+		return true;
+	}
+	bool validarFecha() {
+
+		regex formato("^\\d{4}-\\d{2}-\\d{2}$");
+
+		if (fecha_nacimiento.empty()) {
+			cout << "Fecha vacia" << endl;
+			return false;
+		}
+
+		if (!regex_match(fecha_nacimiento, formato)) {
+			cout << "Formato invalido. Use AAAA-MM-DD" << endl;
+			return false;
+		}
+
+		return true;
+	}
+	bool validarTipoSangre() {
+
+		if (id_tipo_sangre <= 0) {
+			cout << "Tipo sangre invalido" << endl;
+			return false;
+		}
+
+		return true;
+	}
 	// metodos
 	// metodo leer estudiantes desde la base de datos por medio de un query Select * from estudiantes
 	void crear() {
@@ -46,6 +166,40 @@ public:
 		ConexionBD cn = ConexionBD();
 		cn.abrir_conexion();
 		if (cn.get_conexion()) {
+			if (!validarCodigo()) {
+				system("pause");
+				return;
+			}
+
+			if (!validarNombres()) {
+				system("pause");
+				return;
+			}
+
+			if (!validarApellidos()) {
+				system("pause");
+				return;
+			}
+
+			if (!validarDireccion()) {
+				system("pause");
+				return;
+			}
+
+			if (!validarTelefono()) {
+				system("pause");
+				return;
+			}
+
+			if (!validarFecha()) {
+				system("pause");
+				return;
+			}
+
+			if (!validarTipoSangre()) {
+				system("pause");
+				return;
+			}
 			string t = to_string(telefono);
 			string id_ts = to_string(id_tipo_sangre);
 			string consulta = "INSERT INTO estudiantes(codigo,nombres,apellidos,direccion,telefono,fecha_nacimiento,id_tipo_sangre)VALUES('" + codigo + "', '" + nombres + "', '" + apellidos + "', '" + direccion + "', " + t + ", '" + fecha_nacimiento + "', " + id_ts + ");";

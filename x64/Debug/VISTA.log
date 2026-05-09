@@ -1,5 +1,5 @@
 ﻿  main.cpp
-C:\Users\Eskar\OneDrive\Escritorio\UMG\3ER SEMESTRE\PROGRAMACIÓN 1\TAREA 8\SLN_ESCUELA\VISTA\Estudiante.h(72,19): warning C4244: 'inicializando': conversión de 'uint64_t' a 'int'; posible pérdida de datos
+C:\Users\Eskar\OneDrive\Escritorio\UMG\3ER SEMESTRE\PROGRAMACIÓN 1\TAREA 8\SLN_ESCUELA\VISTA\Estudiante.h(226,19): warning C4244: 'inicializando': conversión de 'uint64_t' a 'int'; posible pérdida de datos
   (compilando archivo de origen "main.cpp")
   
   VISTA.vcxproj -> C:\Users\Eskar\OneDrive\Escritorio\UMG\3ER SEMESTRE\PROGRAMACIÓN 1\TAREA 8\SLN_ESCUELA\x64\Debug\VISTA.exe
